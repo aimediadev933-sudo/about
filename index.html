@@ -4,95 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asi@Connect - A Digital Bridge Across Asia</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; overflow-x: hidden; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .site-header { background: linear-gradient(135deg, #003399 0%, #0066cc 100%); color: white; padding: 1rem 0; position: relative; overflow: hidden; }
-        .header-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.3; }
         nav { position: relative; z-index: 10; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .logo-section { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; background: rgba(255, 255, 255, 0.95); padding: 10px 20px; border-radius: 15px; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-        .logo-img { height: 50px; width: auto; transition: transform 0.3s ease; }
+        .logo-section { display: flex; align-items: center; gap: 20px; background: rgba(255, 255, 255, 0.95); padding: 10px 20px; border-radius: 15px; }
+        .logo-img { height: 50px; width: auto; transition: transform 0.3s; }
         .logo-img:hover { transform: scale(1.05); }
-        .eu-logo { height: 40px; }
-        .asiaconnect-logo { height: 50px; }
-        .tein-logo-img { height: 45px; }
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; background: rgba(255, 255, 255, 0.1); border: none; padding: 10px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
-        .menu-toggle:hover { background: rgba(255, 167, 38, 0.8); }
-        .menu-toggle span { display: block; width: 25px; height: 3px; background: white; border-radius: 3px; transition: all 0.3s ease; }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; background: rgba(255, 255, 255, 0.1); border: none; padding: 10px; border-radius: 8px; cursor: pointer; }
+        .menu-toggle span { display: block; width: 25px; height: 3px; background: white; border-radius: 3px; transition: all 0.3s; }
         .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
         .menu-toggle.active span:nth-child(2) { opacity: 0; }
         .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
         .nav-menu { display: flex; list-style: none; gap: 30px; flex-wrap: wrap; }
-        .nav-menu li a { color: white; text-decoration: none; padding: 10px 15px; border-radius: 25px; transition: all 0.3s ease; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); display: block; }
-        .nav-menu li a:hover { background: rgba(255, 167, 38, 0.8); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
-        .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); z-index: 1000; transition: width 0.3s ease; }
-        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 100px 0; position: relative; overflow: hidden; text-align: center; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; animation: float 20s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        .hero-content { position: relative; z-index: 1; }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1rem; background: linear-gradient(45deg, #fff, #e0e7ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero p { font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 2rem; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto; }
-        .cta-button { background: rgba(255, 255, 255, 0.2); color: white; padding: 1rem 2rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 50px; text-decoration: none; display: inline-block; transition: all 0.3s ease; backdrop-filter: blur(10px); }
+        .nav-menu li a { color: white; text-decoration: none; padding: 10px 15px; border-radius: 25px; transition: all 0.3s; background: rgba(255, 255, 255, 0.1); display: block; }
+        .nav-menu li a:hover { background: rgba(255, 167, 38, 0.8); transform: translateY(-2px); }
+        .progress-bar { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); z-index: 1000; transition: width 0.3s; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 100px 0; text-align: center; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1rem; }
+        .hero p { font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .cta-button { background: rgba(255, 255, 255, 0.2); color: white; padding: 1rem 2rem; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 50px; text-decoration: none; display: inline-block; transition: all 0.3s; }
         .cta-button:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-2px); }
         .section-title { text-align: center; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 3rem; color: #333; }
         .stats { background: linear-gradient(45deg, #f8faff, #e8f2ff); padding: 4rem 0; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .stat-card { background: white; padding: 2rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(102, 126, 234, 0.1); }
+        .stat-card { background: white; padding: 2rem; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s; }
         .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
         .stat-number { font-size: 2.5rem; font-weight: 700; color: #667eea; margin-bottom: 0.5rem; display: block; }
         .stat-label { color: #666; font-weight: 500; }
         .success-stories { padding: 4rem 0; background: white; }
         .stories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .story-card { background: linear-gradient(135deg, #f8faff, #e8f2ff); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; border-left: 4px solid #667eea; }
-        .story-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
+        .story-card { background: linear-gradient(135deg, #f8faff, #e8f2ff); padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s; border-left: 4px solid #667eea; }
+        .story-card:hover { transform: translateY(-5px); }
         .story-icon { font-size: 2rem; margin-bottom: 1rem; }
         .story-card h3 { color: #333; margin-bottom: 1rem; font-size: 1.2rem; }
         .story-card p { color: #666; line-height: 1.6; }
         .work-packages-detail { padding: 4rem 0; background: linear-gradient(45deg, #f8faff, #e8f2ff); }
         .wp-accordion { max-width: 900px; margin: 2rem auto 0; }
         .wp-item { margin-bottom: 1rem; border: 1px solid #e0e7ff; border-radius: 10px; overflow: hidden; }
-        .wp-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+        .wp-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; }
         .wp-header:hover { background: linear-gradient(135deg, #5a6fd8, #6a42a0); }
         .wp-header h3 { margin: 0; font-size: 1.1rem; }
-        .wp-toggle { font-size: 1.5rem; font-weight: bold; transition: transform 0.3s ease; }
+        .wp-toggle { font-size: 1.5rem; font-weight: bold; transition: transform 0.3s; }
         .wp-item.active .wp-toggle { transform: rotate(45deg); }
-        .wp-content { display: none; padding: 2rem; background: white; border-top: 1px solid #e0e7ff; }
-        .wp-content.active { display: block; animation: slideDown 0.3s ease; }
+        .wp-content { display: none; padding: 2rem; background: white; }
+        .wp-content.active { display: block; }
         .wp-content ul { list-style: none; padding: 0; margin-top: 1rem; }
         .wp-content li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; }
         .wp-content li:before { content: "→"; position: absolute; left: 0; color: #667eea; font-weight: bold; }
-        @keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 500px; } }
-        .resilience-section { padding: 4rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
-        .resilience-content { text-align: center; }
-        .resilience-text p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .resilience-section { padding: 4rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; }
         .resilience-factors { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0; }
-        .factor { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease; }
+        .factor { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 15px; transition: all 0.3s; }
         .factor:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-3px); }
-        .factor h4 { margin-bottom: 1rem; font-size: 1.1rem; }
-        .factor p { font-size: 0.95rem; opacity: 0.9; }
-        blockquote { background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 15px; margin: 2rem auto; max-width: 600px; font-style: italic; font-size: 1.1rem; border-left: 4px solid rgba(255, 255, 255, 0.5); }
-        cite { display: block; margin-top: 1rem; font-style: normal; font-weight: 600; opacity: 0.8; }
+        .factor h4 { margin-bottom: 1rem; }
+        blockquote { background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 15px; margin: 2rem auto; max-width: 600px; font-style: italic; border-left: 4px solid rgba(255, 255, 255, 0.5); }
+        cite { display: block; margin-top: 1rem; font-style: normal; font-weight: 600; }
         .table-of-contents { padding: 4rem 0; background: white; }
         .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .toc-section { background: linear-gradient(135deg, #f8faff, #e8f2ff); border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-left: 4px solid #667eea; transition: all 0.3s ease; }
-        .toc-section:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
+        .toc-section { background: linear-gradient(135deg, #f8faff, #e8f2ff); border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); border-left: 4px solid #667eea; transition: all 0.3s; }
+        .toc-section:hover { transform: translateY(-5px); }
         .toc-section-title { color: #667eea; font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e0e7ff; }
         .toc-items { display: flex; flex-direction: column; gap: 0.8rem; }
-        .toc-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid rgba(102, 126, 234, 0.1); transition: all 0.3s ease; }
+        .toc-item { padding: 0.5rem 0; border-bottom: 1px solid rgba(102, 126, 234, 0.1); transition: all 0.3s; cursor: pointer; }
         .toc-item:hover { padding-left: 10px; background: linear-gradient(90deg, rgba(102, 126, 234, 0.05), transparent); }
+        .toc-item a { display: flex; justify-content: space-between; align-items: center; width: 100%; text-decoration: none; color: inherit; }
         .toc-title { color: #333; font-weight: 500; flex: 1; }
         .toc-page { color: #667eea; font-weight: 700; min-width: 40px; text-align: center; background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15)); padding: 0.3rem 0.6rem; border-radius: 8px; font-size: 1rem; border: 1px solid rgba(102, 126, 234, 0.2); }
         .features { padding: 4rem 0; background: linear-gradient(45deg, #f8faff, #e8f2ff); }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .feature-card { padding: 2rem; border-radius: 15px; background: white; border-left: 4px solid #667eea; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
-        .feature-card:hover { transform: translateX(5px); box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15); }
+        .feature-card { padding: 2rem; border-radius: 15px; background: white; border-left: 4px solid #667eea; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+        .feature-card:hover { transform: translateX(5px); }
         .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: white; font-size: 1.5rem; }
         .feature-title { font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; color: #333; }
         .sdg-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 0; }
         .sdg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .sdg-card { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease; }
+        .sdg-card { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 15px; transition: all 0.3s; }
         .sdg-card:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-3px); }
         .sdg-number { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
         .timeline { padding: 4rem 0; background: white; }
@@ -101,34 +91,30 @@
         .timeline-content { flex: 1; background: linear-gradient(135deg, #f8faff, #e8f2ff); padding: 1.5rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
         .countries { padding: 4rem 0; background: linear-gradient(45deg, #f8faff, #e8f2ff); text-align: center; }
         .countries-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem; }
-        .country-badge { background: white; padding: 1rem; border-radius: 10px; border: 1px solid #e0e7ff; transition: all 0.3s ease; }
+        .country-badge { background: white; padding: 1rem; border-radius: 10px; border: 1px solid #e0e7ff; transition: all 0.3s; }
         .country-badge:hover { background: linear-gradient(135deg, #667eea, #764ba2); color: white; transform: scale(1.05); }
         .footer { background: #1a1a1a; color: white; padding: 3rem 0 1rem; text-align: center; }
         @media (max-width: 768px) {
             .menu-toggle { display: flex; position: absolute; top: 15px; right: 20px; }
-            .nav-menu { width: 100%; max-height: 0; overflow: hidden; flex-direction: column; gap: 0; transition: max-height 0.3s ease; }
+            .nav-menu { width: 100%; max-height: 0; overflow: hidden; flex-direction: column; gap: 0; transition: max-height 0.3s; }
             .nav-menu.active { max-height: 500px; }
             .timeline-item { flex-direction: column; text-align: center; }
             .stats-grid, .features-grid, .stories-grid { grid-template-columns: 1fr; }
         }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-in { animation: fadeInUp 0.6s ease-out; }
     </style>
 </head>
 <body>
     <div class="progress-bar" id="progressBar"></div>
-    
     <header class="site-header">
-        <div class="header-bg"></div>
         <nav>
             <div class="container">
                 <div class="nav-container">
                     <div class="logo-section">
-                        <img src="images/logos/eu-logo.png" alt="EU" class="logo-img eu-logo">
-                        <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect" class="logo-img asiaconnect-logo">
-                        <img src="images/logos/tein-logo.png" alt="TEIN" class="logo-img tein-logo-img">
+                        <img src="images/logos/eu-logo.png" alt="EU" class="logo-img">
+                        <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect" class="logo-img">
+                        <img src="images/logos/tein-logo.png" alt="TEIN" class="logo-img">
                     </div>
-                    <button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+                    <button class="menu-toggle"><span></span><span></span><span></span></button>
                     <ul class="nav-menu">
                         <li><a href="http://about.asiaconnect.online/">About</a></li>
                         <li><a href="https://wp2.asiaconnect.online/">WP2</a></li>
@@ -142,7 +128,6 @@
             </div>
         </nav>
     </header>
-
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -152,85 +137,60 @@
             </div>
         </div>
     </section>
-
-    <section class="stats">
+    <section class="stats" id="stats">
         <div class="container">
             <h2 class="section-title">Transforming Asia Through Connectivity</h2>
             <div class="stats-grid">
-                <div class="stat-card animate-in"><span class="stat-number">€37.15M</span><div class="stat-label">Total Investment</div></div>
-                <div class="stat-card animate-in"><span class="stat-number">95</span><div class="stat-label">Sub-granted Projects</div></div>
-                <div class="stat-card animate-in"><span class="stat-number">26,000+</span><div class="stat-label">People Trained</div></div>
-                <div class="stat-card animate-in"><span class="stat-number">17,000+</span><div class="stat-label">Institutions Reached</div></div>
-                <div class="stat-card animate-in"><span class="stat-number">70M+</span><div class="stat-label">End Users Benefited</div></div>
-                <div class="stat-card animate-in"><span class="stat-number">926 Gbps</span><div class="stat-label">Network Capacity</div></div>
+                <div class="stat-card"><span class="stat-number">€37.15M</span><div class="stat-label">Total Investment</div></div>
+                <div class="stat-card"><span class="stat-number">95</span><div class="stat-label">Sub-granted Projects</div></div>
+                <div class="stat-card"><span class="stat-number">26,000+</span><div class="stat-label">People Trained</div></div>
+                <div class="stat-card"><span class="stat-number">17,000+</span><div class="stat-label">Institutions Reached</div></div>
+                <div class="stat-card"><span class="stat-number">70M+</span><div class="stat-label">End Users Benefited</div></div>
+                <div class="stat-card"><span class="stat-number">926 Gbps</span><div class="stat-label">Network Capacity</div></div>
             </div>
         </div>
     </section>
-
-    <section class="success-stories">
+    <section class="success-stories" id="success-stories">
         <div class="container">
             <h2 class="section-title">Stories Behind the Numbers</h2>
             <div class="stories-grid">
-                <div class="story-card"><div class="story-icon">🏔️</div><h3>Bhutan - Secure Access</h3><p>Students across remote campuses gained secure access to global research platforms.</p></div>
-                <div class="story-card"><div class="story-icon">👩‍💻</div><h3>Bangladesh - Women in Tech</h3><p>TechGirl programme trained young women in cybersecurity and networking.</p></div>
-                <div class="story-card"><div class="story-icon">🏥</div><h3>Pakistan - Telemedicine</h3><p>Rural clinics linked with urban specialists for faster diagnoses.</p></div>
-                <div class="story-card"><div class="story-icon">☁️</div><h3>Vietnam - Research Data</h3><p>Cloud-based platform gave researchers access to shared repositories.</p></div>
-                <div class="story-card"><div class="story-icon">🌍</div><h3>LandSAGE - Environment</h3><p>Platform for disaster risk, flooding, and pandemic mapping.</p></div>
-                <div class="story-card"><div class="story-icon">📡</div><h3>Nepal - Network Growth</h3><p>Capacity grew 22× from 45 Mbps to 1 Gbps.</p></div>
+                <div class="story-card"><div class="story-icon">🏔️</div><h3>Bhutan</h3><p>Remote students gained secure global access.</p></div>
+                <div class="story-card"><div class="story-icon">👩‍💻</div><h3>Bangladesh</h3><p>Women trained in cybersecurity.</p></div>
+                <div class="story-card"><div class="story-icon">🏥</div><h3>Pakistan</h3><p>Telemedicine for rural clinics.</p></div>
+                <div class="story-card"><div class="story-icon">☁️</div><h3>Vietnam</h3><p>Cloud research platform.</p></div>
+                <div class="story-card"><div class="story-icon">🌍</div><h3>LandSAGE</h3><p>Environmental monitoring.</p></div>
+                <div class="story-card"><div class="story-icon">📡</div><h3>Nepal</h3><p>22× capacity growth.</p></div>
             </div>
         </div>
     </section>
-
-    <section class="work-packages-detail">
+    <section class="work-packages-detail" id="work-packages">
         <div class="container">
-            <h2 class="section-title">Work Package Structure</h2>
+            <h2 class="section-title">Work Packages</h2>
             <div class="wp-accordion">
-                <div class="wp-item">
-                    <div class="wp-header" onclick="toggleWP('wp1')"><h3>WP1 - Network Procurement</h3><span class="wp-toggle">+</span></div>
-                    <div class="wp-content" id="wp1"><p>Core backbone connectivity with 8.7× capacity growth.</p><ul><li>Upgraded to 10–100 Gbps</li><li>100G Asia-Europe links</li></ul></div>
-                </div>
-                <div class="wp-item">
-                    <div class="wp-header" onclick="toggleWP('wp2')"><h3>WP2 - Capacity Development</h3><span class="wp-toggle">+</span></div>
-                    <div class="wp-content" id="wp2"><p>Training programs for NREN staff.</p><ul><li>Train-the-trainer approaches</li><li>NOC trainings</li></ul></div>
-                </div>
-                <div class="wp-item">
-                    <div class="wp-header" onclick="toggleWP('wp3')"><h3>WP3 - Advanced Services</h3><span class="wp-toggle">+</span></div>
-                    <div class="wp-content" id="wp3"><p>Network architectures and services.</p><ul><li>Eduroam deployment</li><li>AI/Big Data testbed</li></ul></div>
-                </div>
-                <div class="wp-item">
-                    <div class="wp-header" onclick="toggleWP('wp4')"><h3>WP4 - Community Building</h3><span class="wp-toggle">+</span></div>
-                    <div class="wp-content" id="wp4"><p>Applications and user communities.</p><ul><li>Identity federation</li><li>Security working groups</li></ul></div>
-                </div>
-                <div class="wp-item">
-                    <div class="wp-header" onclick="toggleWP('wp5')"><h3>WP5 - Societal Benefit</h3><span class="wp-toggle">+</span></div>
-                    <div class="wp-content" id="wp5"><p>Health, agriculture, environment projects.</p><ul><li>Telemedicine networks</li><li>Environmental monitoring</li></ul></div>
-                </div>
-                <div class="wp-item">
-                    <div class="wp-header" onclick="toggleWP('wp6')"><h3>WP6 - Digital Divide</h3><span class="wp-toggle">+</span></div>
-                    <div class="wp-content" id="wp6"><p>Rural and remote area connectivity.</p><ul><li>Community networks</li><li>Internet Exchange Points</li></ul></div>
-                </div>
+                <div class="wp-item"><div class="wp-header" onclick="toggleWP('wp1')"><h3>WP1 - Network Procurement</h3><span class="wp-toggle">+</span></div><div class="wp-content" id="wp1"><p>8.7× capacity growth</p><ul><li>10–100 Gbps upgrades</li><li>100G Asia-Europe links</li></ul></div></div>
+                <div class="wp-item"><div class="wp-header" onclick="toggleWP('wp2')"><h3>WP2 - Capacity Development</h3><span class="wp-toggle">+</span></div><div class="wp-content" id="wp2"><p>NREN training</p><ul><li>Train-the-trainer</li><li>NOC trainings</li></ul></div></div>
+                <div class="wp-item"><div class="wp-header" onclick="toggleWP('wp3')"><h3>WP3 - Advanced Services</h3><span class="wp-toggle">+</span></div><div class="wp-content" id="wp3"><p>Network architectures</p><ul><li>Eduroam deployment</li><li>AI testbed</li></ul></div></div>
+                <div class="wp-item"><div class="wp-header" onclick="toggleWP('wp4')"><h3>WP4 - Community Building</h3><span class="wp-toggle">+</span></div><div class="wp-content" id="wp4"><p>User communities</p><ul><li>Identity federation</li><li>Security groups</li></ul></div></div>
+                <div class="wp-item"><div class="wp-header" onclick="toggleWP('wp5')"><h3>WP5 - Societal Benefit</h3><span class="wp-toggle">+</span></div><div class="wp-content" id="wp5"><p>Health & environment</p><ul><li>Telemedicine</li><li>Monitoring systems</li></ul></div></div>
+                <div class="wp-item"><div class="wp-header" onclick="toggleWP('wp6')"><h3>WP6 - Digital Divide</h3><span class="wp-toggle">+</span></div><div class="wp-content" id="wp6"><p>Rural connectivity</p><ul><li>Community networks</li><li>IXPs</li></ul></div></div>
             </div>
         </div>
     </section>
-
-    <section class="resilience-section">
+    <section class="resilience-section" id="resilience">
         <div class="container">
             <h2 class="section-title">Resilience Through Disruption</h2>
             <div class="resilience-content">
-                <div class="resilience-text">
-                    <p>Partners dealt with pandemics, natural disasters, and political uncertainty. Services grew and collaborations deepened through shared operations and communities of practice.</p>
-                    <div class="resilience-factors">
-                        <div class="factor"><h4>🔄 Regional Redundancy</h4><p>Shared operations reduced disruption.</p></div>
-                        <div class="factor"><h4>🌐 Communities</h4><p>Networks kept training alive online.</p></div>
-                        <div class="factor"><h4>🔧 Open Standards</h4><p>Solutions easily reused across countries.</p></div>
-                        <div class="factor"><h4>🏠 Local Ownership</h4><p>Teams sustained projects independently.</p></div>
-                    </div>
-                    <blockquote>"We used to wait weeks for articles. Today we connect with scientists in real time."<cite>— Kathmandu University, Nepal</cite></blockquote>
+                <p>Partners dealt with pandemics and disasters. Services grew through collaboration.</p>
+                <div class="resilience-factors">
+                    <div class="factor"><h4>🔄 Redundancy</h4><p>Shared operations.</p></div>
+                    <div class="factor"><h4>🌐 Communities</h4><p>Online training.</p></div>
+                    <div class="factor"><h4>🔧 Standards</h4><p>Reusable solutions.</p></div>
+                    <div class="factor"><h4>🏠 Ownership</h4><p>Sustained projects.</p></div>
                 </div>
+                <blockquote>"Today we connect in real time."<cite>— Kathmandu University</cite></blockquote>
             </div>
         </div>
     </section>
-
     <section class="table-of-contents">
         <div class="container">
             <h2 class="section-title">Report Contents</h2>
@@ -238,29 +198,110 @@
                 <div class="toc-section">
                     <h3 class="toc-section-title">Executive Summary</h3>
                     <div class="toc-items">
-                        <div class="toc-item"><span class="toc-title">Vision and Objectives</span><span class="toc-page">03</span></div>
-                        <div class="toc-item"><span class="toc-title">What Changed at Scale</span><span class="toc-page">04</span></div>
-                        <div class="toc-item"><span class="toc-title">The Asi@Connect Model</span><span class="toc-page">05</span></div>
-                        <div class="toc-item"><span class="toc-title">Work Packages at a Glance</span><span class="toc-page">05</span></div>
-                        <div class="toc-item"><span class="toc-title">Stories Behind the Numbers</span><span class="toc-page">06</span></div>
-                        <div class="toc-item"><span class="toc-title">Themes that Drove Transformation</span><span class="toc-page">06</span></div>
-                        <div class="toc-item"><span class="toc-title">NRENs as National Digital Enablers</span><span class="toc-page">07</span></div>
-                        <div class="toc-item"><span class="toc-title">The Sub-Grant Ecosystem</span><span class="toc-page">07</span></div>
-                        <div class="toc-item"><span class="toc-title">Capacity Building That Sticks</span><span class="toc-page">07</span></div>
-                        <div class="toc-item"><span class="toc-title">Resilience Through Disruption</span><span class="toc-page">08</span></div>
-                        <div class="toc-item"><span class="toc-title">Lessons We Will Carry Forward</span><span class="toc-page">08</span></div>
-                        <div class="toc-item"><span class="toc-title">Looking Forward</span><span class="toc-page">08</span></div>
+                        <div class="toc-item"><a href="#stats"><span class="toc-title">Vision and Objectives</span><span class="toc-page">03</span></a></div>
+                        <div class="toc-item"><a href="#success-stories"><span class="toc-title">What Changed at Scale</span><span class="toc-page">04</span></a></div>
+                        <div class="toc-item"><a href="#work-packages"><span class="toc-title">Work Packages</span><span class="toc-page">05</span></a></div>
+                        <div class="toc-item"><a href="#resilience"><span class="toc-title">Resilience</span><span class="toc-page">08</span></a></div>
                     </div>
                 </div>
                 <div class="toc-section">
-                    <h3 class="toc-section-title">Work Packages</h3>
+                    <h3 class="toc-section-title">Details</h3>
                     <div class="toc-items">
-                        <div class="toc-item"><span class="toc-title">WP2 - Capacity Building</span><span class="toc-page">18</span></div>
-                        <div class="toc-item"><span class="toc-title">WP3 - New Services</span><span class="toc-page">43</span></div>
-                        <div class="toc-item"><span class="toc-title">WP4 - Network Design</span><span class="toc-page">55</span></div>
-                        <div class="toc-item"><span class="toc-title">WP5 - Applications</span><span class="toc-page">72</span></div>
-                        <div class="toc-item"><span class="toc-title">WP6 - Outreach</span><span class="toc-page">100</span></div>
+                        <div class="toc-item"><a href="#work-packages"><span class="toc-title">WP2 - Capacity Building</span><span class="toc-page">18</span></a></div>
+                        <div class="toc-item"><a href="#work-packages"><span class="toc-title">WP3 - Services</span><span class="toc-page">43</span></a></div>
+                        <div class="toc-item"><a href="#features"><span class="toc-title">Features</span><span class="toc-page">55</span></a></div>
+                        <div class="toc-item"><a href="#sdg"><span class="toc-title">SDG Alignment</span><span class="toc-page">72</span></a></div>
                     </div>
                 </div>
-                <div class="toc-section">
-                    <h
+            </div>
+        </div>
+    </section>
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Three Pillars</h2>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon">🌐</div><h3 class="feature-title">Infrastructure</h3><p>TEIN backbone, IPv6, eduroam.</p></div>
+                <div class="feature-card"><div class="feature-icon">👥</div><h3 class="feature-title">People</h3><p>Capacity development for NREN staff.</p></div>
+                <div class="feature-card"><div class="feature-icon">🚀</div><h3 class="feature-title">Use-cases</h3><p>Telemedicine, e-learning, monitoring.</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="sdg-section" id="sdg">
+        <div class="container">
+            <h2 class="section-title">SDG Alignment</h2>
+            <div class="sdg-grid">
+                <div class="sdg-card"><div class="sdg-number">SDG 3</div><p>Health & Well-being</p></div>
+                <div class="sdg-card"><div class="sdg-number">SDG 4</div><p>Quality Education</p></div>
+                <div class="sdg-card"><div class="sdg-number">SDG 5</div><p>Gender Equality</p></div>
+                <div class="sdg-card"><div class="sdg-number">SDG 9</div><p>Innovation & Infrastructure</p></div>
+                <div class="sdg-card"><div class="sdg-number">SDG 10</div><p>Reduced Inequalities</p></div>
+                <div class="sdg-card"><div class="sdg-number">SDG 13</div><p>Climate Action</p></div>
+                <div class="sdg-card"><div class="sdg-number">SDG 17</div><p>Partnerships</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <h2 class="section-title">Project Timeline</h2>
+            <div class="timeline-item"><div class="timeline-year">2016</div><div class="timeline-content"><h3>Project Launch</h3><p>Fifth phase of TEIN initiative started.</p></div></div>
+            <div class="timeline-item"><div class="timeline-year">2017</div><div class="timeline-content"><h3>First Call for Proposals</h3><p>12 approved projects launched.</p></div></div>
+            <div class="timeline-item"><div class="timeline-year">2019</div><div class="timeline-content"><h3>Network Expansion</h3><p>100 Gbps capacity established.</p></div></div>
+            <div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-content"><h3>Pandemic Response</h3><p>3x traffic increase.</p></div></div>
+            <div class="timeline-item"><div class="timeline-year">2025</div><div class="timeline-content"><h3>Project Completion</h3><p>Lasting impact achieved.</p></div></div>
+        </div>
+    </section>
+    <section class="countries" id="countries">
+        <div class="container">
+            <h2 class="section-title">24 Connected Countries</h2>
+            <div class="countries-grid">
+                <div class="country-badge">Australia</div><div class="country-badge">Bangladesh</div><div class="country-badge">Bhutan</div><div class="country-badge">Brunei</div><div class="country-badge">Cambodia</div><div class="country-badge">China</div><div class="country-badge">India</div><div class="country-badge">Indonesia</div><div class="country-badge">Japan</div><div class="country-badge">Korea</div><div class="country-badge">Laos</div><div class="country-badge">Malaysia</div><div class="country-badge">Mongolia</div><div class="country-badge">Myanmar</div><div class="country-badge">Nepal</div><div class="country-badge">New Zealand</div><div class="country-badge">Pakistan</div><div class="country-badge">Philippines</div><div class="country-badge">Singapore</div><div class="country-badge">Sri Lanka</div><div class="country-badge">Taiwan</div><div class="country-badge">Thailand</div><div class="country-badge">Vietnam</div><div class="country-badge">Europe (GÉANT)</div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Asi@Connect. A collaborative initiative funded by the European Union and Asian partners.</p>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+        function toggleWP(wpId) {
+            const content = document.getElementById(wpId);
+            const item = content.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.wp-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.wp-content').classList.remove('active');
+            });
+            if (!isActive) {
+                item.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+        document.querySelector('.cta-button').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+        });
+        document.querySelectorAll('.toc-item a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
