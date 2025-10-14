@@ -1100,7 +1100,7 @@
     </section>
 
     <!-- Executive Summary Detail Section -->
-    <section class="executive-summary-detail">
+    <section class="executive-summary-detail" id="executive-summary">
         <div class="container">
             <h2 class="section-title">Executive Summary</h2>
             
@@ -1388,7 +1388,7 @@
                 <div class="toc-section">
                     <h3 class="toc-section-title">Main Sections</h3>
                     <div class="toc-items">
-                        <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="toc-item-link">
+                        <a href="#executive-summary" class="toc-item-link">
                             <div class="toc-item">
                                 <span class="toc-title">Executive Summary</span>
                                 <span class="toc-page">03</span>
@@ -1675,12 +1675,18 @@
             }
         }
 
-        // Smooth scrolling for CTA button
-        document.querySelector('.cta-button').addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = e.target.getAttribute('href');
-            document.querySelector(targetId).scrollIntoView({
-                behavior: 'smooth'
+        // Smooth scrolling for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
 
