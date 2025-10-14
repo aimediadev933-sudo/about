@@ -232,6 +232,100 @@
             color: #333;
         }
 
+        /* Vision Section */
+        .vision-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .vision-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .vision-intro {
+            text-align: center;
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #f8faff, #e8f2ff);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .objective-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .objective-card:hover::before {
+            opacity: 1;
+        }
+
+        .objective-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            opacity: 0.3;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .objective-card h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .objective-card p {
+            color: #666;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vision-footer {
+            text-align: center;
+            font-size: 1.05rem;
+            color: #555;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8faff, #e8f2ff);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            line-height: 1.8;
+        }
+
         /* Stats Section */
         .stats {
             background: linear-gradient(45deg, #f8faff, #e8f2ff);
@@ -859,7 +953,43 @@
             <div class="hero-content">
                 <h1>Asi@Connect</h1>
                 <p>A Digital Bridge Across Asia - Connecting 24 countries to Europe's research and education networks, fostering innovation and sustainable development across the region.</p>
-                <a href="#features" class="cta-button">Explore Our Impact</a>
+                <a href="#vision" class="cta-button">Explore Our Impact</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision and Objectives Section -->
+    <section class="vision-section" id="vision">
+        <div class="container">
+            <h2 class="section-title">Vision and Objectives</h2>
+            <div class="vision-content">
+                <div class="vision-intro">
+                    <p>The programme's vision was to build an inclusive, digitally capable research and education community across Asia. That meant closing persistent gaps in connectivity, skills, and access to digital services, especially for Least Developed Countries (LDCs) and Lower-Middle Income Countries (LMICs).</p>
+                </div>
+                
+                <div class="objectives-grid">
+                    <div class="objective-card">
+                        <div class="objective-number">01</div>
+                        <h3>World-Class Network</h3>
+                        <p>Operate a world-class transcontinental network for research and education that reliably links Asia with Europe.</p>
+                    </div>
+                    
+                    <div class="objective-card">
+                        <div class="objective-number">02</div>
+                        <h3>Capacity Building</h3>
+                        <p>Strengthen human and institutional capacity, with priority support to developing NRENs that need skills, tools, and operating practices to thrive.</p>
+                    </div>
+                    
+                    <div class="objective-card">
+                        <div class="objective-number">03</div>
+                        <h3>Public Benefit Services</h3>
+                        <p>Support applications and services with public benefit, aligned with national needs and the UN Sustainable Development Goals (SDGs).</p>
+                    </div>
+                </div>
+                
+                <div class="vision-footer">
+                    <p>These objectives were pursued through regional cooperation, shared standards, and a community-driven model that encouraged local leadership and South–South collaboration.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1473,7 +1603,8 @@
         // Smooth scrolling for CTA button
         document.querySelector('.cta-button').addEventListener('click', (e) => {
             e.preventDefault();
-            document.querySelector('#features').scrollIntoView({
+            const targetId = e.target.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
                 behavior: 'smooth'
             });
         });
