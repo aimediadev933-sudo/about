@@ -673,7 +673,7 @@
         .toc-items {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .toc-item-link {
@@ -683,23 +683,25 @@
         }
 
         .toc-item-link:hover .toc-item {
-            padding-left: 10px;
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.05), transparent);
+            padding-left: 15px;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), transparent);
         }
 
         .toc-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem 0;
+            padding: 1rem;
             border-bottom: 1px solid rgba(102, 126, 234, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
+            border-radius: 8px;
+            background: white;
         }
 
         .toc-item:hover {
-            padding-left: 10px;
-            background: linear-gradient(90deg, rgba(102, 126, 234, 0.05), transparent);
+            padding-left: 15px;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), transparent);
         }
 
         .toc-title {
