@@ -612,6 +612,17 @@
             gap: 0.8rem;
         }
 
+        .toc-item-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .toc-item-link:hover .toc-item {
+            padding-left: 10px;
+            background: linear-gradient(90deg, rgba(102, 126, 234, 0.05), transparent);
+        }
+
         .toc-item {
             display: flex;
             justify-content: space-between;
@@ -619,6 +630,7 @@
             padding: 0.5rem 0;
             border-bottom: 1px solid rgba(102, 126, 234, 0.1);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .toc-item:hover {
@@ -1281,26 +1293,36 @@
                 <div class="toc-section">
                     <h3 class="toc-section-title">Work Packages</h3>
                     <div class="toc-items">
-                        <div class="toc-item">
-                            <span class="toc-title">WP2 - Capacity Building and Training</span>
-                            <span class="toc-page">18</span>
-                        </div>
-                        <div class="toc-item">
-                            <span class="toc-title">WP3 - Deployment of New Services</span>
-                            <span class="toc-page">43</span>
-                        </div>
-                        <div class="toc-item">
-                            <span class="toc-title">WP4 - Network Design and Operations</span>
-                            <span class="toc-page">55</span>
-                        </div>
-                        <div class="toc-item">
-                            <span class="toc-title">WP5 - Collaboration-Based Applications</span>
-                            <span class="toc-page">72</span>
-                        </div>
-                        <div class="toc-item">
-                            <span class="toc-title">WP6 - Promotion and Outreach</span>
-                            <span class="toc-page">100</span>
-                        </div>
+                        <a href="https://wp2.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="toc-item-link">
+                            <div class="toc-item">
+                                <span class="toc-title">WP2 - Capacity Building and Training</span>
+                                <span class="toc-page">18</span>
+                            </div>
+                        </a>
+                        <a href="http://wp3.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="toc-item-link">
+                            <div class="toc-item">
+                                <span class="toc-title">WP3 - Deployment of New Services</span>
+                                <span class="toc-page">43</span>
+                            </div>
+                        </a>
+                        <a href="http://wp4.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="toc-item-link">
+                            <div class="toc-item">
+                                <span class="toc-title">WP4 - Network Design and Operations</span>
+                                <span class="toc-page">55</span>
+                            </div>
+                        </a>
+                        <a href="https://wp5.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="toc-item-link">
+                            <div class="toc-item">
+                                <span class="toc-title">WP5 - Collaboration-Based Applications</span>
+                                <span class="toc-page">72</span>
+                            </div>
+                        </a>
+                        <a href="http://wp6.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="toc-item-link">
+                            <div class="toc-item">
+                                <span class="toc-title">WP6 - Promotion and Outreach</span>
+                                <span class="toc-page">100</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
