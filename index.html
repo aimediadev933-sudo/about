@@ -251,6 +251,70 @@
             line-height: 1.8;
         }
 
+        /* Executive Summary Detail Section */
+        .executive-summary-detail {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .summary-intro {
+            text-align: center;
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .summary-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #f8faff, #e8f2ff);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+            height: 100%;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-left-width: 6px;
+        }
+
+        .summary-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .summary-card h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .summary-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
         .objectives-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1035,6 +1099,131 @@
                     <span class="stat-number">926 Gbps</span>
                     <div class="stat-label">Network Capacity</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary Detail Section -->
+    <section class="executive-summary-detail">
+        <div class="container">
+            <h2 class="section-title">Executive Summary</h2>
+            
+            <div class="summary-intro">
+                <p>This report chronicles the vision, execution, and lasting impact of Asi@Connect — a groundbreaking initiative that connected research and education networks across Asia and linked them to Europe's digital infrastructure. Through strategic investments in infrastructure, people, and practical applications, the programme has transformed the digital landscape for millions.</p>
+            </div>
+
+            <div class="summary-grid">
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">🎯</div>
+                        <h3>Vision and Objectives</h3>
+                        <p>Building an inclusive, digitally capable research and education community across Asia through enhanced connectivity, capacity building, and sustainable development aligned with UN SDGs.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">📈</div>
+                        <h3>What Changed at Scale</h3>
+                        <p>Network capacity grew 8.7× from 107 Gbps to 926 Gbps. Over 26,000 people trained across 17,000+ institutions, with 95 sub-granted projects reaching 70 million end users.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">🔄</div>
+                        <h3>The Asi@Connect Model</h3>
+                        <p>A three-pillar approach combining Infrastructure (TEIN backbone), People (capacity development), and Use-cases (sub-grants for real-world applications).</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">📦</div>
+                        <h3>Work Packages at a Glance</h3>
+                        <p>Six complementary work packages covering network procurement, capacity building, advanced services, community building, societal innovation, and digital divide bridging.</p>
+                    </div>
+                </a>
+
+                <a href="#success-stories" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">📖</div>
+                        <h3>Stories Behind the Numbers</h3>
+                        <p>Real impact stories from Bhutan's remote colleges, Bangladesh's women in cybersecurity, Pakistan's telemedicine, Vietnam's research data, and Nepal's 22× bandwidth increase.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">🎨</div>
+                        <h3>Themes that Drove Transformation</h3>
+                        <p>Key themes include regional cooperation, open standards, train-the-trainer models, gender inclusion, environmental monitoring, and alignment with Sustainable Development Goals.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">🏛️</div>
+                        <h3>NRENs as National Digital Enablers</h3>
+                        <p>National Research and Education Networks evolved into critical national infrastructure, supporting not just academia but healthcare, government, and cultural institutions.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">🌱</div>
+                        <h3>The Sub-Grant Ecosystem</h3>
+                        <p>Competitive sub-grants funded 95 innovative projects across health, education, environment, and cybersecurity, creating lasting impact through bottom-up innovation.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">💪</div>
+                        <h3>Capacity Building That Sticks</h3>
+                        <p>Multi-level training programs using train-the-trainer approaches ensured knowledge transfer sustainability, empowering local experts to lead future development.</p>
+                    </div>
+                </a>
+
+                <a href="#resilience" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">🛡️</div>
+                        <h3>Resilience Through Disruption</h3>
+                        <p>Despite pandemics, natural disasters, and political uncertainty, the network proved resilient through regional redundancy, communities of practice, and local ownership.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">📚</div>
+                        <h3>Lessons We Will Carry Forward</h3>
+                        <p>Key learnings include the importance of local ownership, flexible implementation, peer-to-peer learning, and balancing central coordination with regional autonomy.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">🔮</div>
+                        <h3>Looking Forward</h3>
+                        <p>Future priorities include sustaining achievements, expanding to underserved regions, enhancing cybersecurity, and supporting emerging technologies like AI and IoT.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">🌍</div>
+                        <h3>A Model Others Can Use</h3>
+                        <p>The Asi@Connect approach offers a replicable blueprint for other regions seeking to build inclusive digital infrastructure through partnership and shared investment.</p>
+                    </div>
+                </a>
+
+                <a href="http://about.asiaconnect.online/" target="_blank" rel="noopener noreferrer" class="summary-card-link">
+                    <div class="summary-card">
+                        <div class="summary-icon">📘</div>
+                        <h3>About This Book</h3>
+                        <p>This report synthesizes nine years of programme data, case studies, and stakeholder testimonials to document achievements and share insights for future initiatives.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
