@@ -55,23 +55,22 @@
         }
 
         .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
 
         .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 10px 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
 
         .logo-img {
             height: 50px;
@@ -125,22 +124,24 @@
         }
 
         .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    align-items: center;
+}
 
-        .nav-menu li a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            display: block;
-        }
+    .nav-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: block;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
 
         .nav-menu li a:hover {
             background: rgba(255, 167, 38, 0.8);
@@ -1155,34 +1156,34 @@
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
+    .container {
+        padding: 0 1rem;
+    }
 
-            .nav-container {
-                flex-direction: column;
-                gap: 20px;
-            }
+    .nav-container {
+        position: relative;
+        flex-wrap: wrap;
+    }
 
-            .logo-section {
-                justify-content: center;
-                gap: 15px;
-                padding: 8px 15px;
-                width: 100%;
-            }
+    .logo-section {
+        justify-content: center;
+        gap: 15px;
+        padding: 8px 15px;
+        width: 100%;
+    }
 
-            .logo-img { height: 40px; }
-            .eu-logo { height: 35px; }
-            .asiaconnect-logo { height: 40px; }
-            .tein-logo-img { height: 38px; }
+    .logo-img { height: 40px; }
+    .eu-logo { height: 35px; }
+    .asiaconnect-logo { height: 40px; }
+    .tein-logo-img { height: 38px; }
 
-            .menu-toggle {
-                display: flex;
-                position: absolute;
-                top: 15px;
-                right: 20px;
-            }
-
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
             .nav-menu {
                 width: 100%;
                 max-height: 0;
